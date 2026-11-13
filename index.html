@@ -2,46 +2,126 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión ACME</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo-box"><h2>acme</h2><p>INMOBILIARIA</p></div>
-        <h1 style="font-size: 22px;">GESTIÓN DE INMUEBLES</h1>
-        <div style="text-align: right;">John Doe <br> <small><a href="#" style="color:white;">Cerrar Sesión</a></small></div>
+        <h1 class="header-title">GESTIÓN DE INMUEBLES</h1>
+        <div class="header-user" id="header-user"></div>
     </header>
 
-    <nav>
-        <button class="tab active" id="tab-inmuebles">Inmuebles</button>
-        <button class="tab" id="tab-usuarios">Usuarios</button>
+    <nav role="tablist" aria-label="Secciones">
+        <button type="button" class="tab active" id="tab-inmuebles" role="tab" aria-selected="true" aria-controls="vista-inmuebles">Inmuebles</button>
+        <button type="button" class="tab" id="tab-usuarios" role="tab" aria-selected="false" aria-controls="vista-usuarios">Usuarios</button>
     </nav>
 
     <main>
-        <div id="dynamic-header">
-            <!-- Buscador y botón Nuevo -->
-        </div>
+        <!-- Vista: listado de inmuebles -->
+        <section id="vista-inmuebles" role="tabpanel" aria-labelledby="tab-inmuebles">
+            <div class="toolbar">
+                <label for="buscador" class="visually-hidden">Buscar inmuebles</label>
+                <input type="search" id="buscador" class="search-input" placeholder="Buscar por tipo, dirección, ciudad o propietario...">
+                <button type="button" class="btn-black" id="btn-nuevo">Nuevo</button>
+            </div>
 
-        <div id="content-area">
-            <!-- Lista de Inmuebles o Usuarios -->
-        </div>
+            <p class="resultados" id="resultados" aria-live="polite"></p>
+            <div id="lista-inmuebles"></div>
 
-        <div class="pagination" id="pagination-bar">
-            <button class="arrow" onclick="cambiarPagina(paginaActual - 1)">&lt;</button>
-            <div class="page-btn active" onclick="cambiarPagina(1)">1</div>
-            <div class="page-btn" onclick="cambiarPagina(2)">2</div>
-            <div class="page-btn" onclick="cambiarPagina(3)">3</div>
-            <button class="arrow" onclick="cambiarPagina(paginaActual + 1)">&gt;</button>
-        </div>
+            <nav class="pagination" id="pagination-bar" aria-label="Paginación"></nav>
+        </section>
+
+        <!-- Vista: formulario de nuevo inmueble -->
+        <section id="vista-formulario" class="hidden" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario" class="form-title">Registrar Nuevo Inmueble</h2>
+
+            <form id="form-inmueble" novalidate>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="new-tipo">Tipo</label>
+                        <select id="new-tipo" class="search-input" required>
+                            <option value="" disabled selected>Seleccione...</option>
+                            <option>Casa</option>
+                            <option>Apartamento</option>
+                            <option>Local</option>
+                            <option>Terreno</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-dir">Dirección exacta</label>
+                        <input type="text" id="new-dir" class="search-input" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-ciudad">Ciudad</label>
+                        <input type="text" id="new-ciudad" class="search-input" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-depto">Departamento</label>
+                        <input type="text" id="new-depto" class="search-input" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-mat">Matrícula inmobiliaria</label>
+                        <input type="text" id="new-mat" class="search-input" placeholder="M-016" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-area">Área (m²)</label>
+                        <input type="number" id="new-area" class="search-input" min="1" step="0.01" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-prop">Nombre del propietario</label>
+                        <input type="text" id="new-prop" class="search-input" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-id-prop">ID del propietario</label>
+                        <input type="text" id="new-id-prop" class="search-input" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-valor">Valor del inmueble ($)</label>
+                        <input type="number" id="new-valor" class="search-input" min="1" step="1" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="new-img">URL de la imagen (opcional)</label>
+                        <input type="url" id="new-img" class="search-input" placeholder="https://...">
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="new-comercial">
+                        <label for="new-comercial">¿Es para uso comercial?</label>
+                    </div>
+                </div>
+
+                <p class="form-error hidden" id="form-error" role="alert"></p>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-black btn-success">Guardar Inmueble</button>
+                    <button type="button" class="btn-black btn-muted" id="btn-cancelar">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Vista: usuarios -->
+        <section id="vista-usuarios" class="hidden" role="tabpanel" aria-labelledby="tab-usuarios">
+            <h2>Lista de Usuarios</h2>
+            <table class="tabla">
+                <thead>
+                    <tr><th scope="col">ID</th><th scope="col">Nombre</th><th scope="col">Rol</th></tr>
+                </thead>
+                <tbody id="lista-usuarios"></tbody>
+            </table>
+        </section>
     </main>
 
-    <div id="modal-detalle" class="modal-overlay">
+    <div id="modal-detalle" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
+            <button type="button" class="close" id="btn-cerrar-modal" aria-label="Cerrar">&times;</button>
             <div id="modal-body"></div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="aviso" class="aviso hidden" role="status" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
