@@ -1,0 +1,22 @@
+{
+  "inmuebles": [
+    { "id": 1, "tipo": "Apartamento", "direccion": "CR. 101 # 25-98", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-001", "area": 50, "propietario": "Carlos Ruiz", "id_prop": "123", "valor": 65000000, "comercial": false, "imagen": "https://picsum.photos/id/10/200/150" },
+    { "id": 2, "tipo": "Casa", "direccion": "CR. 102 # 24-99", "ciudad": "Antigua", "depto": "Sacatepéquez", "matricula": "M-002", "area": 120, "propietario": "Ana López", "id_prop": "456", "valor": 58000000, "comercial": true, "imagen": "https://picsum.photos/id/20/200/150" },
+    { "id": 3, "tipo": "Casa", "direccion": "CR. 10 # 250-08", "ciudad": "Quetzaltenango", "depto": "Xela", "matricula": "M-003", "area": 150, "propietario": "Luis Paz", "id_prop": "789", "valor": 78000000, "comercial": false, "imagen": "https://picsum.photos/id/30/200/150" },
+    { "id": 4, "tipo": "Apartamento", "direccion": "CL. 45 # 12-30", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-004", "area": 85, "propietario": "Marta Gil", "id_prop": "101", "valor": 120000000, "comercial": false, "imagen": "https://picsum.photos/id/40/200/150" },
+    { "id": 5, "tipo": "Apartamento", "direccion": "AV. 19 # 100-05", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-005", "area": 95, "propietario": "Juan Sol", "id_prop": "202", "valor": 240000000, "comercial": true, "imagen": "https://picsum.photos/id/50/200/150" },
+    { "id": 6, "tipo": "Casa", "direccion": "TV. 5 # 45-10", "ciudad": "Cobán", "depto": "Alta Verapaz", "matricula": "M-006", "area": 110, "propietario": "Elena Noa", "id_prop": "303", "valor": 95000000, "comercial": false, "imagen": "https://picsum.photos/id/60/200/150" },
+    { "id": 7, "tipo": "Apartamento", "direccion": "DG. 80 # 14-22", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-007", "area": 45, "propietario": "Pedro Re", "id_prop": "404", "valor": 55000000, "comercial": false, "imagen": "https://picsum.photos/id/70/200/150" },
+    { "id": 8, "tipo": "Casa", "direccion": "CR. 15 # 20-40", "ciudad": "Escuintla", "depto": "Escuintla", "matricula": "M-008", "area": 180, "propietario": "Sonia Bo", "id_prop": "505", "valor": 130000000, "comercial": true, "imagen": "https://picsum.photos/id/80/200/150" },
+    { "id": 9, "tipo": "Apartamento", "direccion": "CL. 10 # 5-15", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-009", "area": 120, "propietario": "Raúl Da", "id_prop": "606", "valor": 310000000, "comercial": false, "imagen": "https://picsum.photos/id/90/200/150" },
+    { "id": 10, "tipo": "Casa", "direccion": "AV. Reforma # 60", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-010", "area": 250, "propietario": "Lucía Mi", "id_prop": "707", "valor": 450000000, "comercial": false, "imagen": "https://picsum.photos/id/100/200/150" },
+    { "id": 11, "tipo": "Apartamento", "direccion": "CR. 7 # 150-10", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-011", "area": 70, "propietario": "Hugo Fa", "id_prop": "808", "valor": 180000000, "comercial": true, "imagen": "https://picsum.photos/id/110/200/150" },
+    { "id": 12, "tipo": "Casa", "direccion": "Vía Canales Km 15", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-012", "area": 500, "propietario": "Inés La", "id_prop": "909", "valor": 850000000, "comercial": false, "imagen": "https://picsum.photos/id/120/200/150" },
+    { "id": 13, "tipo": "Apartamento", "direccion": "CL. 100 # 15-20", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-013", "area": 130, "propietario": "Olga Si", "id_prop": "010", "valor": 500000000, "comercial": false, "imagen": "https://picsum.photos/id/130/200/150" },
+    { "id": 14, "tipo": "Casa", "direccion": "Barrio Moderno", "ciudad": "Zacapa", "depto": "Zacapa", "matricula": "M-014", "area": 30, "propietario": "Fito Pa", "id_prop": "111", "valor": 90000000, "comercial": true, "imagen": "https://picsum.photos/id/140/200/150" },
+    { "id": 15, "tipo": "Apartamento", "direccion": "CR. 50 # 12-80", "ciudad": "Guatemala", "depto": "Guatemala", "matricula": "M-015", "area": 68, "propietario": "Gaby Do", "id_prop": "222", "valor": 145000000, "comercial": false, "imagen": "https://picsum.photos/id/150/200/150" }
+  ],
+  "usuarios": [
+    { "id": 1, "nombre": "John Doe", "rol": "Administrador" }
+  ]
+}

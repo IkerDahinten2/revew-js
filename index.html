@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión ACME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-box"><h2>acme</h2><p>INMOBILIARIA</p></div>
+        <h1 style="font-size: 22px;">GESTIÓN DE INMUEBLES</h1>
+        <div style="text-align: right;">John Doe <br> <small><a href="#" style="color:white;">Cerrar Sesión</a></small></div>
+    </header>
+
+    <nav>
+        <button class="tab active" id="tab-inmuebles">Inmuebles</button>
+        <button class="tab" id="tab-usuarios">Usuarios</button>
+    </nav>
+
+    <main>
+        <div id="dynamic-header">
+            <!-- Buscador y botón Nuevo -->
+        </div>
+
+        <div id="content-area">
+            <!-- Lista de Inmuebles o Usuarios -->
+        </div>
+
+        <div class="pagination" id="pagination-bar">
+            <button class="arrow" onclick="cambiarPagina(paginaActual - 1)">&lt;</button>
+            <div class="page-btn active" onclick="cambiarPagina(1)">1</div>
+            <div class="page-btn" onclick="cambiarPagina(2)">2</div>
+            <div class="page-btn" onclick="cambiarPagina(3)">3</div>
+            <button class="arrow" onclick="cambiarPagina(paginaActual + 1)">&gt;</button>
+        </div>
+    </main>
+
+    <div id="modal-detalle" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
